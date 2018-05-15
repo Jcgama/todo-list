@@ -1,19 +1,19 @@
 <template>
-  <section class="todoapp">
-    <header class="header">
-      <h1>Tarefas</h1>
-    </header>
+	<section class="todoapp">
+		<header class="header">
+			<h1>Tarefas</h1>
+		</header>
 		<input-task></input-task>
-  </section>
+	</section>
 </template>
 
 <script>
 import InputTask from './components/InputTask'
 export default {
-  name: 'App',
-  components: {
-    InputTask
-  }
+	name: 'App',
+	components: {
+		InputTask
+	}
 }
 </script>
 
@@ -23,6 +23,7 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 button {
 	margin: 0;
 	padding: 0;
@@ -38,6 +39,7 @@ button {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
@@ -50,27 +52,32 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-weight: 300;
 }
+
 :focus {
 	outline: 0;
 }
-.cep{
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-  padding: 5px;
-  border-top: 1px solid #ededed;
-  text-align: center;
+
+.cep {
+	text-decoration: none;
+	font-size: 16px;
+	display: block;
+	padding: 5px;
+	border-top: 1px solid #ededed;
+	text-align: center;
 }
+
 .hidden {
 	display: none;
 }
+
 .todoapp {
 	background: #fff;
 	margin: 130px 0 40px 0;
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+	0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
+
 .todoapp h1 {
 	position: absolute;
 	top: -155px;

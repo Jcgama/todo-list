@@ -1,16 +1,26 @@
 <template>
-  <div>
-      <input type="text" class="new-todo" placeholder="Nova tarefa">
-  </div>
+	<div>
+		<input type="text" class="new-todo" placeholder="Nova tarefa" v-on:keyup.enter="addTask">
+	</div>
 </template>
 
 <script>
+import { Task } from '../models/Task'
 export default {
-    data(){
-        return{
+	data() {
+		return {
 
-        }
-    }
+		}
+	},
+	methods:{
+		addTask($event){
+			let val = $event.target.value;
+			let task = new Task();
+			task.title = val;
+			task.completed = false;
+			console.log(task);
+		}
+	}
 }
 </script>
 
@@ -20,16 +30,19 @@ export default {
 	font-weight: 300;
 	color: #e6e6e6;
 }
+
 .todoapp input::-moz-placeholder {
 	font-style: italic;
 	font-weight: 300;
 	color: #e6e6e6;
 }
+
 .todoapp input::input-placeholder {
 	font-style: italic;
 	font-weight: 300;
 	color: #e6e6e6;
 }
+
 .new-todo,
 .edit {
 	position: relative;
@@ -48,11 +61,12 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 .new-todo {
 	padding: 16px 16px 16px 60px;
 	border: none;
 	background: rgba(0, 0, 0, 0.003);
-	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+	box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
 }
 </style>
 
