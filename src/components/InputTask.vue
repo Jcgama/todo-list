@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<input type="text" class="new-todo" placeholder="Nova tarefa" v-on:keyup.enter="addTask">
+		<input type="text" class="new-todo" placeholder="Nova tarefa" @keyup.enter="addTask">
 	</div>
 </template>
 
@@ -14,11 +14,13 @@ export default {
 	},
 	methods:{
 		addTask($event){
-			let val = $event.target.value;
-			let task = new Task();
-			task.title = val;
-			task.completed = false;
-			console.log(task);
+			let val = $event.target.value
+			let task = new Task()
+			task.title = val
+			task.completed = false
+			task.id = Math.random(1,1000)
+			this.$emit('newTask',task)
+			$event.target.value = ''
 		}
 	}
 }
