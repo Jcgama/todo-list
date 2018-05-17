@@ -2,8 +2,8 @@
     <ul class="todo-list">
         <li v-for="todo in todoList" v-bind:key="todo.id" class="todo">
             <div class="view">
-                <input type="checkbox" class="toogle">
-                <label>
+                <input type="checkbox" class="toogle" @click="completeTask(todo)">
+                <label :class="{ 'todo-completed' : todo.completed }">
                     {{todo.title}}
                 </label>
             </div>
@@ -22,6 +22,11 @@ export default {
                 if (a.title > b.title) return  1
                 return 0
             })
+        }
+    },
+    methods: {
+        completeTask(task){
+            task.completed = !task.completed
         }
     }
 }

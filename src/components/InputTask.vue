@@ -12,15 +12,25 @@ export default {
 
 		}
 	},
-	methods:{
-		addTask($event){
+	methods: {
+		addTask($event) {
 			let val = $event.target.value
+			let task = this.createTask(val)
+			this.broadCast(task)
+			this.clearField($event)
+		},
+		createTask(value) {
 			let task = new Task()
-			task.title = val
 			task.completed = false
-			task.id = Math.random(1,1000)
-			this.$emit('newTask',task)
-			$event.target.value = ''
+			task.title = value
+			task.id = Math.random(1, 1000)
+			return task
+		},
+		broadCast(task) {
+			this.$emit('newTask', task)
+		},
+		clearField() {
+			this.$el.querySelector('input').value = ''
 		}
 	}
 }
