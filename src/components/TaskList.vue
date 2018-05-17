@@ -1,13 +1,15 @@
 <template>
     <ul class="todo-list">
-        <li v-for="todo in todoList" v-bind:key="todo.id" class="todo">
-            <div class="view">
-                <input type="checkbox" class="toogle" @click="completeTask(todo)">
-                <label :class="{ 'todo-completed' : todo.completed }">
-                    {{todo.title}}
-                </label>
-            </div>
-        </li>
+        <transition-group name="fade">
+            <li v-for="todo in todoList" v-bind:key="todo.id" class="todo">
+                <div class="view">
+                    <input type="checkbox" class="toogle" @click="completeTask(todo)">
+                    <label :class="{ 'todo-completed' : todo.completed }">
+                        {{todo.title}}
+                    </label>
+                </div>
+            </li>
+        </transition-group>
     </ul>
 </template>
 
@@ -17,22 +19,32 @@ export default {
     computed: {
         sortedTasks: () => {
             let sorted = this.todoList
-            return sorted.sort( (a,b) => {
+            return sorted.sort((a, b) => {
                 if (a.title < b.title) return -1
-                if (a.title > b.title) return  1
+                if (a.title > b.title) return 1
                 return 0
             })
         }
     },
     methods: {
-        completeTask(task){
+        completeTask(task) {
             task.completed = !task.completed
         }
     }
 }
 </script>
 
+
 <style>
+
+.fade-enter-active, fade-leave-active{
+    transition: opacity .5s;
+}
+
+.fade-enter, fade-leave-to{
+    opacity: 0;
+}
+
 .todo-list {
     margin: 0;
     padding: 0;
@@ -140,6 +152,7 @@ export default {
 .todo-list li.editing:last-child {
     margin-bottom: -1px;
 }
+
 
 
 /*
