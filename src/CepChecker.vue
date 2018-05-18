@@ -1,7 +1,7 @@
 <template>
   <section class="cepChecker">
     <label>Digite o CEP:</label>
-    <input type="text" @blur="checkCep" v-mask="'99999-999'"></input>
+    <input type="text" v-focus="true" @blur="checkCep" v-mask="'99999-999'"></input>
     <router-link class="home" to="/">Ver Tarefas</router-link>
     <div v-show="hasAddress()">
       <p>Rua:{{address.logradouro}}</p>
@@ -15,6 +15,7 @@
 <script>
 
 import AwesomeMask from 'awesome-mask'
+import Focus from './directives/focus'
 
 export default {
   data() {
@@ -23,7 +24,8 @@ export default {
       }
   },
   directives:{
-    'mask':AwesomeMask
+    'mask':AwesomeMask,
+    'focus':Focus
   },
   methods:{
     checkCep($event){
