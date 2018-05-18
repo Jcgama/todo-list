@@ -9,6 +9,11 @@ import routes from './routes'
 
 Vue.use(VueRouter)
 
+//RESOURCE
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+
 const router = new VueRouter({
   mode: 'history',
   routes
