@@ -5,6 +5,7 @@
 		</header>
 		<input-task @newTask="addTask"></input-task>
 		<task-list v-bind:todo-list="tasks"></task-list>
+		<router-link class="cep" to="/cep">Verificar CEP</router-link>
 	</section>
 </template>
 

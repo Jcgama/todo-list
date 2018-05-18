@@ -24,7 +24,9 @@ new Vue({
   components: { App },
   template: `
     <div id="app">
-      <router-view class="view"></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view class="view"></router-view>
+      </transition>
     </div>
   `
 })
